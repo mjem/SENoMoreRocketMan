@@ -1,0 +1,16 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 2024-09-02
+  Features:
+    - Early spaceship, clamp and ion drive technologies and recipes
+	- Personal transport capsules available without cargo rocket techs
+	- Description of how to buff personal transport capsules
+	- Cargo rockets removed
+	- Delivery cannons removed
+  Missing:
+    - Early space elevator
+	- Automatic improvements to personal transport capsule
+	- Reduce fuel cost to take off in a spaceship from a high gravity surface
+	- Replace initial crash site with wrecked spaceship components
+	- Earlier sun techs (glave and power transmission)
+	- Re-order the technologies in the tech page sidebar

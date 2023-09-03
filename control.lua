@@ -1,0 +1,67 @@
+-- data.raw only available during game load
+-- game only available in on_init()
+
+-- log("my log")
+
+-- if settings.startup["senomorerocketman-remove-cargo-rockets"].value == true then
+   -- log("removing cargo rocket")
+-- end
+
+-- if data.raw.technology["loader"] then
+	-- data.raw.technology["loader"] = null
+-- end
+
+-- function called on load or start
+-- script.on_init(function()
+	  -- shown inlaid on screen
+	  -- game.print("on_init start")
+	  -- crashes mod
+	  -- player.print("player print")
+	  -- not sure where found
+	  -- log("my log")
+	  -- if settings.global["senomorerocketman-remove-cargo-rockets"].value == true then
+		 -- game.print("removing cargo rockets 1")
+		 -- for _, force_data in pairs(game.forces) do
+			-- force_data.technologies["se-rocket-launch-pad"].enabled = false
+			-- force_data.technologies["se-rocket-landing-pad"].enabled = false
+			-- force_data.resettechnologies()
+		 -- end
+		 -- if game.player.force.raw.technology["se-rocket-launch-pad"] then
+			-- game.print("killing launch pad tech")
+			-- game.player.force.raw.technology["se-rocket-launch-pad"] = null
+		 -- end
+		 -- if data.raw.technology["se-rocket-landing-pad"] then
+			-- game.print("killing landing pad tech")
+			-- data.raw.technology["se-rocket-landing-pad"] = null
+		 -- end
+	   -- data.raw["technology"]["solar-energy"].prerequisites = {"optics", "advanced-electronics", "my-new-uber-tech"}
+	   -- game.difficulty_settings.recipe_difficulty = 1
+	   -- game.difficulty_settings.technology_difficulty = 1
+	   -- game.difficulty_settings.technology_price_multiplier = 4
+    -- end
+	  -- end
+   -- if settings.global["senomorerocketman-earlier-spaceships"].value then
+	  -- game.print("enabling early spaceship")
+		 -- for _, force_data in pairs(game.forces) do
+			-- force_data.technologies["se-spaceship"].prerequisites = {
+			   -- "military-4",
+			   -- "exoskeleton-equipment",
+			   -- "se-rtg-equipment",
+			   -- "rocketry",
+			   -- "rocket-control-unit",
+			   -- "effectivity-module-3",
+			-- }
+		 -- end
+   -- end
+   -- game.print("on_init done")
+-- end)
+-- if data.raw.technology["vehicle-miner"] and data.raw.technology["automobilism"] then
+  -- table.insert(data.raw.technology["vehicle-miner"].prerequisites, ["automobilism"])
+-- end
+
+-- mod_prefix = 'se-'
+-- Event = {addListener = function() end}
+-- local Capsule = require('__space-exploration__.scripts.capsule')
+-- Event = nil
+-- mod_prefix = nil
+-- Capsule.hop_fuel_cost_energy_coefficient = 3
