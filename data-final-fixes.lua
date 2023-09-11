@@ -42,7 +42,6 @@ if settings.startup["senomorerocketman-earlier-spaceships"].value then
    data.raw.technology["se-space-capsule-navigation"].effects = {
 	  {type="unlock-recipe", recipe="se-space-capsule"},
 	  {type="unlock-recipe", recipe="se-space-capsule-refurbish"},
-	  {type="unlock-recipe", recipe="se-cargo-rocket-section"}
    }
 
    -- make spaceships available after capsules with space science
@@ -71,11 +70,6 @@ if settings.startup["senomorerocketman-earlier-spaceships"].value then
    remove_ingredient("se-spaceship-rocket-engine", "se-aeroframe-scaffold")
    remove_ingredient("se-spaceship-rocket-booster-tank", "se-aeroframe-scaffold")
 
-   -- remove_ingredient("se-cargo-rocket-section", "se-cargo-rocket-cargo-pod")
-   -- remove_ingredient("se-cargo-rocket-section", "se-cargo-rocket-fuel-tank")
-
-   -- TBD add something available from a nearby planet
-
    -- detach space science from cargo launcher (this bit needs krastorio 2)
    data.raw.technology["space-science-pack"].prerequisites = {
 	  "kr-advanced-lab",
@@ -88,20 +82,19 @@ if settings.startup["senomorerocketman-earlier-spaceships"].value then
 	  "advanced-electronics-2",
    }
 
-   -- make spaceship automation available with astro 1 science
+   -- make spaceship automation (clamps) available with astro 1 science
    data.raw.technology["se-spaceship-clamps"].prerequisites = {
 	  "se-spaceship",
-	  "se-astronomic-science-pack-1",
+	  "se-space-belt",
    }
    data.raw.technology["se-spaceship-clamps"].unit = {
-	  count = 100,
+	  count = 200,
 	  ingredients = {
 		 {"automation-science-pack", 1},
 		 {"logistic-science-pack", 1},
 		 {"chemical-science-pack", 1},
 		 {"se-rocket-science-pack", 1},
 		 {"space-science-pack", 1},
-		 {"se-astronomic-science-pack-1", 1},
 	  },
 	  time = 15,
    }
@@ -134,6 +127,9 @@ if settings.startup["senomorerocketman-earlier-spaceships"].value then
    remove_ingredient("se-spaceship-ion-booster-tank", "se-holmium-cable")
    remove_ingredient("se-spaceship-ion-booster-tank", "se-holmium-solenoid")
    remove_ingredient("se-spaceship-ion-booster-tank", "se-beryllium-plate")
+
+   -- get rid of the alt recipe for cargo rocket sections
+   hide_tech("se-cargo-rocket-section-beryllium")
 
 end
 
@@ -168,3 +164,24 @@ end
 	  -- return 10000000000,0
    -- end
 -- end
+
+--
+--- Earlier logistics
+--
+
+if settings.startup["senomorerocketman-earlier-logistics-system"] then
+      data.raw.technology["logistic-system"].prerequisites = {
+	  "se-rocket-science-pack",
+	  "logistic-robotics"
+   }
+   data.raw.technology["logistic-system"].unit = {
+	  count = 250,
+	  ingredients = {
+		 {"automation-science-pack", 1},
+		 {"logistic-science-pack", 1},
+		 {"chemical-science-pack", 1},
+		 {"se-rocket-science-pack", 1},
+	  },
+	  time = 30,
+   }
+end

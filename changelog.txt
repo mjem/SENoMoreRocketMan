@@ -3,14 +3,23 @@ Version: 0.1.0
 Date: 2024-09-02
   Features:
     - Early spaceship, clamp and ion drive technologies and recipes
+	- Early logistics system
 	- Personal transport capsules available without cargo rocket techs
 	- Description of how to buff personal transport capsules
+	- Description of how to reduce spaceship launch costs
 	- Cargo rockets removed
 	- Delivery cannons removed
   Missing:
     - Early space elevator
-	- Automatic improvements to personal transport capsule
-	- Reduce fuel cost to take off in a spaceship from a high gravity surface
-	- Replace initial crash site with wrecked spaceship components
+	- Automate patching SE to buff personal transport capsule
+	- Automate patching SE to reduce spaceship launch costs
+	- Replace initial crash site with wrecked spaceship components as a tutorial for basic spaceship design
 	- Earlier sun techs (glave and power transmission)
 	- Re-order the technologies in the tech page sidebar
+	- Properly hide removed techs instead of just moving them to the end of the tech tree
+	- Put spaceship clamps in a ruined spaceship in Nauvis orbit as a spaceship automation tutorial
+	- Test without verybz and krastorio 2 mods
+	- Make spaceship console produce a trickle of power sufficient to power small planet-to-orbit transporters
+	- Write up all option names and descriptions
+	- Review the readme text
+	- Make nice little spaceship icon
