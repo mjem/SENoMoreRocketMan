@@ -1,12 +1,4 @@
 data:extend({
-    -- {
-        -- type = "bool-setting",
-        -- name = "senomorerocketman-capsule-tech",
-        -- setting_type = "runtime-global",
-        -- setting_type = "startup",
-        -- default_value = true,
-		-- order = 1
-    -- },
 	{
         type = "bool-setting",
         name = "senomorerocketman-earlier-spaceships",
@@ -45,14 +37,13 @@ data:extend({
         default_value = true,
 		order = 1
 	},
-	{
-        type = "bool-setting",
-        name = "senomorerocketman-earlier-space-elevator",
-        -- setting_type = "runtime-global",
-        setting_type = "startup",
-        default_value = true,
-		order = 1
-	},
+	-- {
+        -- type = "bool-setting",
+        -- name = "senomorerocketman-earlier-space-elevator",
+        -- setting_type = "startup",
+        -- default_value = true,
+		-- order = 1
+	-- },
 	{
         type = "bool-setting",
         name = "senomorerocketman-earlier-logistics-system",
@@ -68,4 +59,11 @@ data:extend({
         -- default_value = true,
 		-- order = 1
 	-- },
+	{
+        type = "bool-setting",
+        name = "senomorerocketman-cheaper-satellite-launches",
+        setting_type = "startup",
+        default_value = true,
+		order = 1
+	},
 })

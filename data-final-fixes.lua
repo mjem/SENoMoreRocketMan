@@ -18,6 +18,18 @@ function remove_ingredient(recipe, ingredient)
    data.raw.recipe[recipe].ingredients = new_ingredients
 end
 
+-- Change `recipe` so it needs `new_amount` of `ingredient`
+-- function change_ingredient(recipe, ingredient, new_amount)
+   -- new_ingredients = {}
+   -- for _, ingredient_amount in ipairs(data.raw.recipe[recipe].ingredients) do
+	  -- if ingredient_amount[1] == ingredient then
+		 
+	  -- end
+	  -- table.insert(new_ingredients, ingredient_amount)
+   -- end
+   -- data.raw.recipe[recipe].ingredients = new_ingredients
+-- end
+
 --
 --- Make spaceships available sooner
 --
@@ -184,4 +196,12 @@ if settings.startup["senomorerocketman-earlier-logistics-system"] then
 	  },
 	  time = 30,
    }
+end
+
+--
+--- Cheaper satellites
+--
+if settings.startup["senomorerocketman-cheaper-satellite-launches"] then
+   local data_util = require("__space-exploration__.data_util")
+   data_util.replace_or_add_ingredient("rocket-part", "rocket-fuel", "rocket-fuel", 1)
 end

@@ -21,5 +21,3 @@ Date: 2024-09-02
 	- Test without verybz and krastorio 2 mods
 	- Make spaceship console produce a trickle of power sufficient to power small planet-to-orbit transporters
 	- Write up all option names and descriptions
-	- Review the readme text
-	- Make nice little spaceship icon
