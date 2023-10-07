@@ -1,14 +1,8 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.0
-Date: 2024-09-02
+Version: 0.2.0
+Date: 2024-10-08
   Features:
-    - Early spaceship, clamp and ion drive technologies and recipes
-	- Early logistics system
-	- Personal transport capsules available without cargo rocket techs
-	- Description of how to buff personal transport capsules
-	- Description of how to reduce spaceship launch costs
-	- Cargo rockets removed
-	- Delivery cannons removed
+    - Options for earlier lithium-sulphur batteries, space trains
   Missing:
     - Earlier techs: space elevator, spidertron, pylon, sun beaming, shield projector
 	- Automate patching SE to buff personal transport capsule
@@ -23,3 +17,15 @@ Date: 2024-09-02
 	victory with only Tier 1 sciences. Keep Tier 2 for post victory end game techs like: matter processing (matter),
 	secret SE victory (deep space), bio upgrades (bio), teleportation (astro), antimatter drives (astro), infinite power (energy).
 	Leave T3 and T4 techs in the tree to enable some misc techs.
+
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 2024-09-02
+  Features:
+    - Early spaceship, clamp and ion drive technologies and recipes
+	- Early logistics system
+	- Personal transport capsules available without cargo rocket techs
+	- Description of how to buff personal transport capsules
+	- Description of how to reduce spaceship launch costs
+	- Cargo rockets removed
+	- Delivery cannons removed
