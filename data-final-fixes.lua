@@ -2,12 +2,14 @@
 --- Utility functions
 --
 
--- Disable `tech` as best we can
+-- Disable `tech` (sort of)
 function hide_tech(tech)
    data.raw.technology[tech].prerequisites = {"se-teleportation"}
 end
 
 -- Remove `ingredient` from `recipe`
+-- Only works if the recipe was created using tuples for ingredients
+-- if they are given are {name=xxx, amount=yyy} this function silently fails
 function remove_ingredient(recipe, ingredient)
    new_ingredients = {}
    for _, ingredient_amount in ipairs(data.raw.recipe[recipe].ingredients) do
@@ -23,7 +25,6 @@ end
    -- new_ingredients = {}
    -- for _, ingredient_amount in ipairs(data.raw.recipe[recipe].ingredients) do
 	  -- if ingredient_amount[1] == ingredient then
-		 
 	  -- end
 	  -- table.insert(new_ingredients, ingredient_amount)
    -- end
@@ -88,7 +89,7 @@ if settings.startup["senomorerocketman-earlier-spaceships"].value then
 	  "se-space-decontamination-facility",
    }
 
-   -- detech space assembling from delivery canon
+   -- detach space assembling from delivery canon
    data.raw.technology["se-space-assembling"].prerequisites = {
 	  "se-thruster-suit",
 	  "advanced-electronics-2",
@@ -182,7 +183,7 @@ end
 --
 
 if settings.startup["senomorerocketman-earlier-logistics-system"] then
-      data.raw.technology["logistic-system"].prerequisites = {
+   data.raw.technology["logistic-system"].prerequisites = {
 	  "se-rocket-science-pack",
 	  "logistic-robotics"
    }
@@ -205,3 +206,58 @@ if settings.startup["senomorerocketman-cheaper-satellite-launches"] then
    local data_util = require("__space-exploration__.data_util")
    data_util.replace_or_add_ingredient("rocket-part", "rocket-fuel", "rocket-fuel", 1)
 end
+
+--
+--- Earlier lithium-sulfur batteries
+--
+if settings.startup["senomorerocketman-earlier-lithium-sulfur-battery"] then
+   data.raw.technology["kr-lithium-sulfur-battery"].prerequisites = {
+	  "production-science-pack",
+	  "kr-lithium-processing",
+   }
+   data.raw.technology["kr-lithium-sulfur-battery"].unit = {
+	  count = 200,
+	  ingredients = {
+		 {"automation-science-pack", 1},
+		 {"logistic-science-pack", 1},
+		 {"chemical-science-pack", 1},
+		 {"se-rocket-science-pack", 1},
+		 {"space-science-pack", 1},
+		 {"production-science-pack", 1},
+	  },
+	  time = 30,
+   }
+end
+
+--
+--- Earlier space railways
+--
+if settings.startup["senomorerocketman-earlier-space-railway"] then
+   -- Remove holmium cable tech prereq
+   data.raw.technology["se-space-rail"].prerequisites = {
+	  "kr-lithium-sulfur-battery",
+   }
+   -- Remove energy science packs
+   data.raw.technology["se-space-rail"].unit = {
+	  count = 50,
+	  ingredients = {
+		 {"automation-science-pack", 1},
+		 {"logistic-science-pack", 1},
+		 {"chemical-science-pack", 1},
+		 {"se-rocket-science-pack", 1},
+		 {"space-science-pack", 1},
+		 {"production-science-pack", 1},
+		 {"utility-science-pack", 1},
+	  },
+	  time = 60,
+   }
+   -- Remove holmium cable from space trace recipie
+   -- remove_ingredient("se-space-rail", "se-holmium-cable")
+   -- remove_ingredient("se-space-rail", "se-energy-catalogue-1")
+   data.raw.recipe["se-space-rail"].ingredients = {
+    { name = "rail", amount = 100},
+    { name = "steel-plate", amount = 100},
+   }
+end
+
+--if mods["Krastorio2"] then

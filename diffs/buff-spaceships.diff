@@ -1,0 +1,17 @@
+diff -ru ./scripts/spaceship.lua ../space-exploration_0.6.112/scripts/spaceship.lua
+--- ./scripts/spaceship.lua	2023-07-29 17:55:28.000000000 +0200
++++ ../space-exploration_0.6.112/scripts/spaceship.lua	2023-10-06 22:36:57.586336572 +0200
+@@ -372,11 +372,11 @@
+     local zone = Zone.from_zone_index(spaceship.zone_index)
+     if zone then
+       if Zone.is_space(zone) then
+-        return 250 * spaceship.integrity_stress * Spaceship.energy_per_launch_integrity_delta_v
++        return 250 * spaceship.integrity_stress * Spaceship.energy_per_launch_integrity_delta_v / 10
+       end
+       local delta_v = Zone.get_launch_delta_v(zone)
+       local energy_cost = delta_v * spaceship.integrity_stress * Spaceship.energy_per_launch_integrity_delta_v
+-      return energy_cost
++      return energy_cost / 100
+     end
+   end
+ end

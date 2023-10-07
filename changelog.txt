@@ -10,7 +10,7 @@ Date: 2024-09-02
 	- Cargo rockets removed
 	- Delivery cannons removed
   Missing:
-    - Early space elevator
+    - Earlier techs: space elevator, spidertron, pylon, sun beaming, shield projector
 	- Automate patching SE to buff personal transport capsule
 	- Automate patching SE to reduce spaceship launch costs
 	- Replace initial crash site with wrecked spaceship components as a tutorial for basic spaceship design
@@ -19,5 +19,7 @@ Date: 2024-09-02
 	- Properly hide removed techs instead of just moving them to the end of the tech tree
 	- Put spaceship clamps in a ruined spaceship in Nauvis orbit as a spaceship automation tutorial
 	- Test without verybz and krastorio 2 mods
-	- Make spaceship console produce a trickle of power sufficient to power small planet-to-orbit transporters
-	- Write up all option names and descriptions
+    - Simplify victory conditions: Shift various techs around to enable SE (victory ship) and K2 (big power)
+	victory with only Tier 1 sciences. Keep Tier 2 for post victory end game techs like: matter processing (matter),
+	secret SE victory (deep space), bio upgrades (bio), teleportation (astro), antimatter drives (astro), infinite power (energy).
+	Leave T3 and T4 techs in the tree to enable some misc techs.

@@ -66,4 +66,18 @@ data:extend({
         default_value = true,
 		order = 1
 	},
+	{
+        type = "bool-setting",
+        name = "senomorerocketman-earlier-lithium-sulfur-battery",
+        setting_type = "startup",
+        default_value = true,
+		order = 1
+	},
+	{
+        type = "bool-setting",
+        name = "senomorerocketman-earlier-space-railway",
+        setting_type = "startup",
+        default_value = true,
+		order = 1
+	},
 })

@@ -1,0 +1,40 @@
+diff -ru ./scripts/capsule-gui.lua ../space-exploration_0.6.112/scripts/capsule-gui.lua
+--- ./scripts/capsule-gui.lua	2023-07-29 17:55:28.000000000 +0200
++++ ../space-exploration_0.6.112/scripts/capsule-gui.lua	2023-10-06 23:41:35.515219025 +0200
+@@ -81,13 +81,13 @@
+   local subheader_frame = capsule_gui_frame.add{type="frame", direction="vertical", style="space_platform_subheader_frame"}
+ 
+   -- Capacity
+-  local property_flow = subheader_frame.add{type="flow", direction="horizontal"}
++  local property_flow = subheader_frame.add{type="flow", direction="horizontal", visible=false}
+   property_flow.add{type="label", caption={"space-exploration.space-capsule-capacity-label"}, tooltip={"space-exploration.space-capsule-capacity-tooltip"}, style="se_relative_properties_label"}
+   property_flow.add{type="empty-widget", style="se_relative_properties_spacer"}
+   property_flow.add{type="label", name="capacity", caption=""}
+ 
+   -- First stage
+-  property_flow = subheader_frame.add{type="flow", direction="horizontal"}
++  property_flow = subheader_frame.add{type="flow", direction="horizontal", visible=false}
+   property_flow.add{type="label", caption={"space-exploration.space-capsule-sections-label"}, tooltip={"space-exploration.space-capsule-sections-tooltip"},  style="se_relative_properties_label"}
+   property_flow.add{type="empty-widget", style="se_relative_properties_spacer"}
+   property_flow.add{type="label", name="sections", caption=""}
+diff -ru ./scripts/capsule.lua ../space-exploration_0.6.112/scripts/capsule.lua
+--- ./scripts/capsule.lua	2023-07-29 17:55:28.000000000 +0200
++++ ../space-exploration_0.6.112/scripts/capsule.lua	2023-10-06 23:41:30.615111529 +0200
+@@ -13,7 +13,7 @@
+ Capsule.name_capsule_targeter = mod_prefix .. "space-capsule-targeter"
+ Capsule.name_tech_capsule_navigation = mod_prefix .. "space-capsule-navigation"
+ Capsule.hop_fuel_cost_energy_coefficient = 50000
+-Capsule.max_stacks = 20
++Capsule.max_stacks = 200
+ Capsule.max_stacks_infinite = 10000
+ Capsule.stack_fuel_multiplier = 0.1
+ Capsule.base_weight = 10
+@@ -308,7 +308,7 @@
+   total_fuel_cost = total_fuel_cost + sections_cost * Capsule.get_rocket_fuel_fuel_value() * Capsule.get_rocket_fuel_stack_size()
+   total_fuel_cost = math.ceil(total_fuel_cost)
+   sections_cost = math.ceil(sections_cost)
+-  return total_fuel_cost, sections_cost
++  return math.min(total_fuel_cost/10, 10000000000), 0
+ end
+ 
+ ---Calculates and returns the total fuel and cargo rocket sections costs of a capsule launch including excess items.
