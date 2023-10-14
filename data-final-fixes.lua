@@ -95,7 +95,7 @@ if settings.startup["senomorerocketman-earlier-spaceships"].value then
 	  "advanced-electronics-2",
    }
 
-   -- make spaceship automation (clamps) available with astro 1 science
+   -- make spaceship automation (clamps) available with space science
    data.raw.technology["se-spaceship-clamps"].prerequisites = {
 	  "se-spaceship",
 	  "se-space-belt",

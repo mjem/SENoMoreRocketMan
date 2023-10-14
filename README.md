@@ -1,13 +1,18 @@
 Space Exploration - No More Rocket Man
 ======================================
 
+Summary
+-------
+
+Tweaks to the Space Exploration mod centered around encouraging use of spaceships instead of cargo rockets.
+
 Introduction
 ------------
 
 This mod makes playing using the Space Exploration mod faster paced by making spaceships and other techs
 cheaper and available earlier. It is only for use with Space Exploration and Krastorio 2, optionally with the Very BZ mod too.
 
-Spaceships in particular become usable soon after the player reaches Nauvis orbit, and their launch costs 
+Spaceships become available soon after the player reaches Nauvis orbit, and their launch costs 
 are reduced making them a viable transport option almost from the start of the space age.
 
 Transport capsules, logistics, spaceship automation, space trains and other techs are available much sooner than normal in SE.
@@ -16,7 +21,32 @@ In addition, for some balance and to further encourage use of spaceships, cargo 
 capsules simply instantly teleport between surfaces, losing the sense of scale that the Space Exploration mod is capable of.
 
 All the changes are optional and controlled via mod settings in the GUI, except the changes listed below which must be
-made by manually patching the SE mod code.
+made by manually patching the SE mod code. The settings can only be adjusted when starting a new game although the 
+mod can be safely added to an existing save.
+
+New levels
+----------
+
+With this mod installed and all options active you get the following techs as below:
+
+- Rocket Science - Spaceships and logistic chests
+- Space Science - Spaceship automation, 
+- Utility Science -
+- Production Science - Advanced labs (by unlocking lithium batteries), Space trains, space elevator
+- Astro Tier 1 - Ion drive, shields
+- Bio Tier 1 -
+- Energy Tier 1 - Sun power beams and glaves
+- Materials Tier 1 - Big condensers and big spaceships, enabling fast spaceships that can operate away from stars
+- All 4 basic Tier 1 sciences - Deep Space Tier 1
+- Deep Space Tier 1 - Naquim processing, antimatter driver, factory spaceships leading to spaceship victory
+(you still need to complete the Krastorio 2 victory first unless you install my other mod xxx)
+- Astro Tier 2 - Arcosphere folding
+- Bio Tier 2 - All player biological upgrades for learning, strength and speed available
+- Energy Tier 2 - Personal teleportation
+- Materials Tier 2 - Matter processing
+- Deep space tier 2 - Teleportation logistics
+
+Tiers 3 and 4 are all still available and with no changes.
 
 Manual changes
 --------------
