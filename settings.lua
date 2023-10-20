@@ -37,13 +37,6 @@ data:extend({
         default_value = true,
 		order = 1
 	},
-	-- {
-        -- type = "bool-setting",
-        -- name = "senomorerocketman-earlier-space-elevator",
-        -- setting_type = "startup",
-        -- default_value = true,
-		-- order = 1
-	-- },
 	{
         type = "bool-setting",
         name = "senomorerocketman-earlier-logistics-system",
@@ -52,13 +45,6 @@ data:extend({
         default_value = true,
 		order = 1
 	},
-	-- {
-        -- type = "bool-setting",
-        -- name = "senomorerocketman-earlier-space-science-lab",
-        -- setting_type = "startup",
-        -- default_value = true,
-		-- order = 1
-	-- },
 	{
         type = "bool-setting",
         name = "senomorerocketman-cheaper-satellite-launches",
