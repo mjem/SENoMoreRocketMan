@@ -1,0 +1,15 @@
+[basic]
+good-names=c
+
+[format]
+indent-string='\t'
+
+[messages control]
+disable=
+	bad-indentation,
+	consider-using-f-string,
+	too-many-statements
+
+[design]
+max-args=20
+
