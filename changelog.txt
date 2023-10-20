@@ -1,22 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.0
+Date: 2024-10-19
+  Features:
+    - Make space-exploration-postprocess a dependency so we load afterwards, eliminating crash on launch from v0.2.0 if it initialises first
+	- Removed cargo rocket section from space probe rocket recipe so Astro Science Tier 4 is no longer blocked
+	- Earlier space elevator
+  Missing:
+	- Test without VeryBZ mod
+	- Enable running without Krastorio 2 mod
+
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 2024-10-08
   Features:
     - Options for earlier lithium-sulphur batteries, space trains
-  Missing:
-    - Earlier techs: space elevator, spidertron, pylon, sun beaming, shield projector
-	- Automate patching SE to buff personal transport capsule
-	- Automate patching SE to reduce spaceship launch costs
-	- Replace initial crash site with wrecked spaceship components as a tutorial for basic spaceship design
-	- Earlier sun techs (glave and power transmission)
-	- Re-order the technologies in the tech page sidebar
-	- Properly hide removed techs instead of just moving them to the end of the tech tree
-	- Put spaceship clamps in a ruined spaceship in Nauvis orbit as a spaceship automation tutorial
-	- Test without verybz and krastorio 2 mods
-    - Simplify victory conditions: Shift various techs around to enable SE (victory ship) and K2 (big power)
-	victory with only Tier 1 sciences. Keep Tier 2 for post victory end game techs like: matter processing (matter),
-	secret SE victory (deep space), bio upgrades (bio), teleportation (astro), antimatter drives (astro), infinite power (energy).
-	Leave T3 and T4 techs in the tree to enable some misc techs.
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.0
