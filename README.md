@@ -9,28 +9,26 @@ Tweaks to the Space Exploration mod centered around encouraging use of spaceship
 Introduction
 ------------
 
-This mod makes playing using the Space Exploration mod faster paced by making spaceships and other techs
-cheaper and available earlier. It is only for use with Space Exploration and Krastorio 2, optionally with the Very BZ mod.
+This mod makes playing using the Space Exploration mod faster paced by making spaceships and other techs cheaper and available earlier. It is only for use with Space Exploration and Krastorio 2, optionally with the Very BZ mod.
 
 Spaceships become available soon after the player reaches Nauvis orbit and their launch costs are reduced making them a viable transport option almost from the start of the space age.
 
-Logistics, spaceship automation, space trains and elevators and other techs are available much sooner than normal in SE.
+Logistics, spaceship automation, space trains and elevators and other techs are also available much sooner than normal in SE.
 
-In addition, for some balance and to further encourage use of spaceships, cargo rockets and delivery capsules are removed. I find spaceships are the most fun way of setting up interplanetary transport networks and dislike the way cargo rockets and delivery
+In addition, for balance and to further encourage use of spaceships, cargo rockets and delivery capsules are removed. I find spaceships are the most fun way of setting up interplanetary transport networks and dislike the way cargo rockets and delivery
 capsules simply instantly teleport between surfaces, losing the sense of scale that the Space Exploration mod is capable of.
 
-All the changes are optional and controlled via mod settings in the GUI except the changes listed below which must be
+All the changes are optional and controlled via mod settings in the GUI, except the changes listed below which must be
 made by manually patching the SE mod code. The settings can only be adjusted when starting a new game. This mod can be safely added
-to an existing save.
+to an existing save (but watch out for changes to the space elevator cable recipe if added to a save advanced enough to use them).
 
-New levels
-----------
+Tech changes
+------------
 
 With this mod installed and all options active you get the following progressions sooner than usual:
 
-- Rocket Science - Transport capsules and logistic chests
+- Rocket Science - Personal transport capsules and logistic chests
 - Space Science - Spaceships and spaceship automation
-- Utility Science - No change
 - Production Science - Space science lab (by unlocking lithium batteries)
 - Utility and Production Science - Space trains, space elevator
 
