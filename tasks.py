@@ -125,8 +125,20 @@ def dist(c,
 
 	if zip:
 		# make distribution zipfile including version
-		target = Path("../SENoMoreRocketMan_0.3.0.zip")
-		c.run("zip -vr {target} changelog.txt *.lua *.png locale LICENSE".format(target=target))
+		target = Path("SENoMoreRocketMan_0.3.0.zip")
+		subdir = Path("SENoMoreRocketMan")
+		files = [Path("*.md"),
+				 Path("changelog.txt"),
+				 Path("info.json"),
+				 Path("*.lua"),
+				 Path("thumbnail.png"),
+				 Path("locale"),
+				 ]
+		with c.cd(".."):
+			c.run("rm -f {target}".format(target=target))
+			c.run("zip -vr9 {target} {files}".format(
+				target=target, files=" ".join((str(subdir.joinpath(f)) for f in files))))
+
 		print("Wrote {target}".format(target=target))
 
 	if license:
