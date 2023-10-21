@@ -125,7 +125,7 @@ def dist(c,
 
 	if zip:
 		# make distribution zipfile including version
-		target = Path("SENoMoreRocketMan_0.3.0.zip")
+		target = Path("SENoMoreRocketMan_0.3.1.zip")
 		subdir = Path("SENoMoreRocketMan")
 		files = [Path("*.md"),
 				 Path("changelog.txt"),

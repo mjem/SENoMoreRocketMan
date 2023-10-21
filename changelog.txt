@@ -1,13 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.1
+Date: 2024-10-21
+  Features:
+    - Remove Astro 1 Science requirement from aeroframe pole which was blocking early space elevator
+
+---------------------------------------------------------------------------------------------------
 Version: 0.3.0
 Date: 2024-10-19
   Features:
     - Make space-exploration-postprocess a dependency so we load afterwards, eliminating crash on launch from v0.2.0 if it initialises first
-	- Removed cargo rocket section from space probe rocket recipe so Astro Science Tier 4 is no longer blocked
-	- Earlier space elevator
+    - Removed cargo rocket section from space probe rocket recipe so Astro Science Tier 4 is no longer blocked
+    - Earlier space elevator
   Missing:
-	- Test without VeryBZ mod
-	- Enable running without Krastorio 2 mod
+    - Test without VeryBZ mod
+    - Enable running without Krastorio 2 mod
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
@@ -20,9 +26,9 @@ Version: 0.1.0
 Date: 2024-09-02
   Features:
     - Early spaceship, clamp and ion drive technologies and recipes
-	- Early logistics system
-	- Personal transport capsules available without cargo rocket techs
-	- Description of how to buff personal transport capsules
-	- Description of how to reduce spaceship launch costs
-	- Cargo rockets removed
-	- Delivery cannons removed
+    - Early logistics system
+    - Personal transport capsules available without cargo rocket techs
+    - Description of how to buff personal transport capsules
+    - Description of how to reduce spaceship launch costs
+    - Cargo rockets removed
+    - Delivery cannons removed
