@@ -268,7 +268,7 @@ if settings.startup["senomorerocketman-earlier-space-railway"] then
 	  },
 	  time = 60,
    }
-   -- Remove holmium cable from space trace recipie
+   -- Remove holmium cable from space train recipie
    -- (remove_ingredient needs adapting to the way these recipies are specified)
    -- remove_ingredient("se-space-rail", "se-holmium-cable")
    -- remove_ingredient("se-space-rail", "se-energy-catalogue-1")
@@ -276,7 +276,24 @@ if settings.startup["senomorerocketman-earlier-space-railway"] then
     { name = "rail", amount = 100},
     { name = "steel-plate", amount = 100},
    }
-   -- Remove all material science prereq from space elevator but leave holmium and beryllium techs
+   -- Remove Astro 1 requirement from aeroframe pole, which is a prereq to space elevator tech...
+   data.raw.technology["se-aeroframe-pole"].prerequisites = {
+	  "se-space-astrometrics-laboratory",
+   }
+   -- ...and drop the Astro tech ingredient
+   data.raw.technology["se-aeroframe-pole"].unit = {
+	  count = 50,
+	  ingredients = {
+		 {"automation-science-pack", 1},
+		 {"logistic-science-pack", 1},
+		 {"chemical-science-pack", 1},
+		 {"se-rocket-science-pack", 1},
+		 {"space-science-pack", 1},
+		 {"utility-science-pack", 1},
+	  },
+	  time = 60,
+   }
+   -- Remove all material science prereq from space elevator, leaving holmium and beryllium techs
    data.raw.technology["se-space-elevator"].prerequisites = {
 	  "se-space-mechanical-laboratory",
 	  "se-holmium-cable",
