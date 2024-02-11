@@ -4,38 +4,25 @@ Space Exploration - No More Rocket Man
 Summary
 -------
 
-Tweaks to the Space Exploration mod centered around encouraging use of spaceships instead of cargo rockets.
+Alter the Space Exploration mod to make spaceships cheaper and available sooner, plus other changes to encourage using 
+spaceships and transport capsules for interplanetary transport instead of cargo rockets and delivery canons.
 
-Introduction
-------------
+Changes
+-------
 
-This mod makes playing using the Space Exploration mod faster paced by making spaceships and other techs cheaper and available earlier. It is only for use with Space Exploration and Krastorio 2, optionally with the Very BZ mod.
+Spaceships become available soon after reaching Nauvis orbit, and their launch costs are reduced making them a viable transport option from the start of the space age. Transport capsules are still for at least the first trip to Nauvis orbit.
 
-Spaceships become available soon after the player reaches Nauvis orbit and their launch costs are reduced making them a viable transport option almost from the start of the space age.
+For balance, and to further encourage use of spaceships, cargo rockets and delivery capsules are removed. I find spaceships are the most fun way of setting up interplanetary transport networks and dislike the way cargo rockets and delivery
+capsules instantly teleport between surfaces, which loses the sense of scale that the Space Exploration mod excels at.
 
-Logistics, spaceship automation, space trains and elevators and other techs are also available much sooner than normal in SE.
-
-In addition, for balance and to further encourage use of spaceships, cargo rockets and delivery capsules are removed. I find spaceships are the most fun way of setting up interplanetary transport networks and dislike the way cargo rockets and delivery
-capsules simply instantly teleport between surfaces, losing the sense of scale that the Space Exploration mod is capable of.
-
-All the changes are optional and controlled via mod settings in the GUI, except the changes listed below which must be
-made by manually patching the SE mod code. The settings can only be adjusted when starting a new game. This mod can be safely added
-to an existing save (but watch out for changes to the space elevator cable recipe if added to a save advanced enough to use them).
-
-Tech changes
-------------
-
-With this mod installed and all options active you get the following progressions sooner than usual:
-
-- Rocket Science - Personal transport capsules and logistic chests
-- Space Science - Spaceships and spaceship automation
-- Production Science - Space science lab (by unlocking lithium batteries)
-- Utility and Production Science - Space trains, space elevator
+The mod also has options to make logistics, space trains and elevators and life support capsule canisters available 
+ earlier than usual.
 
 Manual changes
 --------------
 
-The following changes make spaceships and personal transport capsules cheaper to build and operate and more useful.
+Some changes are not made automatically and require manual edits to the Space Exploration mod code.
+They help to compensate for loss of cargo rockets.
 
 ### Setup
 
@@ -44,17 +31,7 @@ On Linux this will be `mods` underneath the directory where the game files were 
 
 Unzip the original mod using the command line `unzip <filename>` or by using Windows Explorer.
 
-### Reduce launch costs for spaceships
-
-Edit ``scripts/spaceship.lua`` around line 378 at the end of function Spaceship.get_launch_energy_cost() from:
-
-    return energy_cost
-
-to:
-
-    return energy_cost / 100
-
-### Reduce fuel and cargo rocket sections cost for launching personal transport capsules
+### Reduce fuel cost and eliminate cargo rocket section cost for launching personal transport capsules
 
 Edit `scripts/capsule.lua` (around line 311) and change:
 
@@ -74,7 +51,7 @@ to:
 
     Capsule.max_stacks = 2000
 
-### Remove the display of rocket sections and cargo limits in the capsule gui
+### Remove the display of rocket sections and cargo limits from the capsule GUI
 
 Edit `scripts/capsule-gui.lua` and find the following lines around 83:
 
@@ -96,10 +73,16 @@ to:
     -- First stage
     property_flow = subheader_frame.add{type="flow", direction="horizontal", visible=false}
 
+### Reduce launch costs for spaceships
+
+Edit ``scripts/spaceship.lua`` around line 378 at the end of function Spaceship.get_launch_energy_cost() from:
+
+    return energy_cost
+
+to:
+
+    return energy_cost / 3
+
 ### Finishing up
 
 You can run the game directly from the unzipped source files - the directory of individual files will take precedent over the original .zip file. Or if you prefer, re-compress the changed files and delete the directory of individual files.
-
-### Diffs
-
-The source code for this mod on gitlab includes `.patch` files for applying these changes.

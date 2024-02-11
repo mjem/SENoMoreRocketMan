@@ -2,17 +2,30 @@
 
 """Project tools. Run `invoke` to execute."""
 
+import os
 from pathlib import Path
 
 from invoke import task
 
+# Name of the module for packaging
+MODNAME = "SENoMoreRocketMan"
+
+# To be replaced and determined dynamically from something else
+VERSION = "0.4.0"
+
+# Location of installed game
+FACTORIO_DIR = "FACTORIO_DIR"
+
+# Location of factorio mods subdirectory
+MODS_SUBDIR = "mods"
+
 
 @task(help={
-	'lua': 'Run lua lint over script',
-	'language': 'Check for spelling and grammar in documentation, comments and l18n files',
-	'files': 'General purpose filesystem checker',
-	'git': 'Repository checker',
-	'mod': 'Run custom factorio mod lint script',  # find a 3rd party one
+	"lua": "Run lua lint over script",
+	"language": "Check for spelling and grammar in documentation, comments and l18n files",
+	"files": "General purpose filesystem checker",
+	"git": "Repository checker",
+	"mod": "Run custom factorio mod lint script",  # find a 3rd party one
 	# or write on that just checks for l18n strings
 })
 def lint(c,
@@ -125,7 +138,7 @@ def dist(c,
 
 	if zip:
 		# make distribution zipfile including version
-		target = Path("SENoMoreRocketMan_0.3.1.zip")
+		target = Path("SENoMoreRocketMan_{version}.zip".format(version=VERSION))
 		subdir = Path("SENoMoreRocketMan")
 		files = [Path("*.md"),
 				 Path("changelog.txt"),
@@ -148,3 +161,17 @@ def dist(c,
 	if png:
 		# optipng pngcrush pngnq pngquant trimage
 		pass
+
+@task(help={
+	"copy": "Copy files to game mods dir located via FACTORIO_DIR",
+})
+def deploy(c,
+		   copy=False):
+	"""Copy to runtime directory."""
+	if copy:
+		c.run("invoke dist --zip")
+		c.run("cp ../{modname}_{version}.zip {factorio}/{mod}".format(
+			modname=MODNAME,
+			version=VERSION,
+			factorio=os.environ[FACTORIO_DIR],
+			mod=MODS_SUBDIR))

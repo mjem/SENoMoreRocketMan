@@ -21,17 +21,6 @@ local function remove_ingredient(recipe, ingredient)
    data.raw.recipe[recipe].ingredients = new_ingredients
 end
 
--- Change `recipe` so it needs `new_amount` of `ingredient`
--- function change_ingredient(recipe, ingredient, new_amount)
-   -- new_ingredients = {}
-   -- for _, ingredient_amount in ipairs(data.raw.recipe[recipe].ingredients) do
-	  -- if ingredient_amount[1] == ingredient then
-	  -- end
-	  -- table.insert(new_ingredients, ingredient_amount)
-   -- end
-   -- data.raw.recipe[recipe].ingredients = new_ingredients
--- end
-
 --
 --- Make spaceships available sooner
 --
@@ -85,10 +74,17 @@ if settings.startup["senomorerocketman-earlier-spaceships"].value then
    remove_ingredient("se-spaceship-rocket-booster-tank", "se-aeroframe-scaffold")
 
    -- detach space science from cargo launcher (this bit needs krastorio 2)
-   data.raw.technology["space-science-pack"].prerequisites = {
-	  "kr-advanced-lab",
-	  "se-space-decontamination-facility",
-   }
+   if mods["Krastorio2"] then
+	  data.raw.technology["space-science-pack"].prerequisites = {
+		 "kr-advanced-lab",
+		 "se-space-decontamination-facility",
+	  }
+   else
+	  data.raw.technology["space-science-pack"].prerequisites = {
+		 "se-meteor-defence",
+		 "se-space-decontamination-facility",
+	  }
+   end
 
    -- detach space assembling from delivery canon
    data.raw.technology["se-space-assembling"].prerequisites = {
@@ -148,6 +144,67 @@ if settings.startup["senomorerocketman-earlier-spaceships"].value then
 end
 
 --
+-- Cheaper and earlier spaceship parts
+--
+
+if settings.startup["senomorerocketman-cheaper-spaceships"] then
+   if mods["Krastorio2"] then
+	  data.raw.technology["se-spaceship-integrity-1"].unit = {
+		 count = 100,
+		 ingredients = {
+			{"automation-science-pack", 1},
+			{"logistic-science-pack", 1},
+			{"chemical-science-pack", 1},
+			{"se-rocket-science-pack", 1},
+			{"space-science-pack", 1},
+			{"production-science-pack", 1},
+			{"utility-science-pack", 1},
+			{"kr-optimization-tech-card", 1},
+			{"se-astronomic-science-pack-1", 1},
+			{"se-material-science-pack-1", 1},
+		 },
+		 time = 60,
+	  }
+   else
+	  data.raw.technology["se-spaceship-integrity-1"].unit = {
+		 count = 100,
+		 ingredients = {
+			{"automation-science-pack", 1},
+			{"logistic-science-pack", 1},
+			{"chemical-science-pack", 1},
+			{"se-rocket-science-pack", 1},
+			{"space-science-pack", 1},
+			{"utility-science-pack", 1},
+			{"production-science-pack", 1},
+			{"se-astronomic-science-pack-1", 1},
+			{"se-material-science-pack-1", 1},
+		 },
+		 time = 60,
+	  }
+   end
+   data.raw.recipe["se-liquid-rocket-fuel"].normal = {
+      ingredients={
+		 {name="rocket-fuel", amount=1}
+      },
+      results={
+		 {name="se-liquid-rocket-fuel", type="fluid", amount=100}
+	  }
+    }
+   -- data.raw.recipe["se-liquid-rocket-fuel"].expensive = {
+      -- ingredients = {
+		 -- { name = "rocket-fuel", amount = 2 },
+      -- },
+      -- results = {name = "se-liquid-rocket-fuel", type="fluid", amount=50}
+    -- }
+   -- data.raw.recipe["se-liquid-rocket-fuel"].ingredients = {
+      -- { name = "rocket-fuel", amount = 2 },
+   -- }
+   -- data.raw.recipe["se-liquid-rocket-fuel"].results = {
+      -- {name = "se-liquid-rocket-fuel", type="fluid", amount=100},
+    -- }
+end
+
+--
 --- Remove cargo rockets
 --
 
@@ -192,58 +249,6 @@ end
    -- end
 -- end
 
---
---- Earlier logistics
---
-
-if settings.startup["senomorerocketman-earlier-logistics-system"] then
-   data.raw.technology["logistic-system"].prerequisites = {
-	  "se-rocket-science-pack",
-	  "logistic-robotics"
-   }
-   data.raw.technology["logistic-system"].unit = {
-	  count = 250,
-	  ingredients = {
-		 {"automation-science-pack", 1},
-		 {"logistic-science-pack", 1},
-		 {"chemical-science-pack", 1},
-		 {"se-rocket-science-pack", 1},
-	  },
-	  time = 30,
-   }
-end
-
---
---- Cheaper satellites
---
-
-if settings.startup["senomorerocketman-cheaper-satellite-launches"] then
-   local data_util = require("__space-exploration__.data_util")
-   data_util.replace_or_add_ingredient("rocket-part", "rocket-fuel", "rocket-fuel", 1)
-end
-
---
---- Earlier lithium-sulfur batteries
---
-
-if settings.startup["senomorerocketman-earlier-lithium-sulfur-battery"] then
-   data.raw.technology["kr-lithium-sulfur-battery"].prerequisites = {
-	  "production-science-pack",
-	  "kr-lithium-processing",
-   }
-   data.raw.technology["kr-lithium-sulfur-battery"].unit = {
-	  count = 200,
-	  ingredients = {
-		 {"automation-science-pack", 1},
-		 {"logistic-science-pack", 1},
-		 {"chemical-science-pack", 1},
-		 {"se-rocket-science-pack", 1},
-		 {"space-science-pack", 1},
-		 {"production-science-pack", 1},
-	  },
-	  time = 30,
-   }
-end
 
 --
 --- Earlier space railways
@@ -251,9 +256,15 @@ end
 
 if settings.startup["senomorerocketman-earlier-space-railway"] then
    -- Remove holmium cable tech prereq to space railways
-   data.raw.technology["se-space-rail"].prerequisites = {
-	  "kr-lithium-sulfur-battery",
-   }
+   if mods["Krastorio2"] then
+	  data.raw.technology["se-space-rail"].prerequisites = {
+		 "kr-lithium-sulfur-battery",
+	  }
+   else
+	  data.raw.technology["se-space-rail"].prerequisites = {
+		 "se-space-hypercooling-1",
+	  }
+   end
    -- Remove energy science packs from space railway tech
    data.raw.technology["se-space-rail"].unit = {
 	  count = 50,
@@ -365,4 +376,34 @@ if settings.startup["senomorerocketman-earlier-space-railway"] then
    }
 end
 
---if mods["Krastorio2"] then
+--
+--- Earlier logistics
+--
+
+if settings.startup["senomorerocketman-earlier-logistics-system"] then
+   data.raw.technology["logistic-system"].prerequisites = {
+	  "se-rocket-science-pack",
+	  "logistic-robotics"
+   }
+   data.raw.technology["logistic-system"].unit = {
+	  count = 250,
+	  ingredients = {
+		 {"automation-science-pack", 1},
+		 {"logistic-science-pack", 1},
+		 {"chemical-science-pack", 1},
+		 {"se-rocket-science-pack", 1},
+	  },
+	  time = 30,
+   }
+end
+
+--
+-- Earlier life support (get to orbit without blue circuits)
+--
+
+if settings.startup["senomorerocketman-earlier-life-support"] then
+   data.raw.recipe["se-empty-lifesupport-canister"].ingredients = {
+	  {"advanced-circuit", 1},
+	  {"se-canister", 1},
+   }
+end
