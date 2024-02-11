@@ -2,9 +2,9 @@
 Version: 0.4.0
 Date: 2024-02-11
   Features:
-    - Dropped Krastorio 2 requirement. Some techs and recipes have separate K2 and non-K2 versions defined
+    - Dropped Krastorio 2 requirement. Some techs and recipes now have separate K2 and non-K2 versions
 	- Added option for earlier life support
-	- Removed several options that were entirely unrelated to spaceships, to be included to my upcoming
+	- Removed several options that were unrelated to spaceships, to be included to my upcoming
 	  Tier 1 Spaceship Victory mod
 
 ---------------------------------------------------------------------------------------------------

@@ -33,7 +33,7 @@ Unzip the original mod using the command line `unzip <filename>` or by using Win
 
 ### Reduce fuel cost and eliminate cargo rocket section cost for launching personal transport capsules
 
-Edit `scripts/capsule.lua` (around line 311) and change:
+Edit `scripts/capsule.lua` (around line 316) and change:
 
     return total_fuel_cost, sections_cost
 
@@ -53,7 +53,7 @@ to:
 
 ### Remove the display of rocket sections and cargo limits from the capsule GUI
 
-Edit `scripts/capsule-gui.lua` and find the following lines around 83:
+Edit `scripts/capsule-gui.lua` and find the following lines around 85:
 
     -- Capacity
     local property_flow = subheader_frame.add{type="flow", direction="horizontal"}
@@ -63,7 +63,7 @@ Change to:
     -- Capacity
     local property_flow = subheader_frame.add{type="flow", direction="horizontal", visible=false}
 
-And change:
+And change around line 91:
 
     -- First stage
     property_flow = subheader_frame.add{type="flow", direction="horizontal"}
@@ -75,7 +75,7 @@ to:
 
 ### Reduce launch costs for spaceships
 
-Edit ``scripts/spaceship.lua`` around line 378 at the end of function Spaceship.get_launch_energy_cost() from:
+Edit ``scripts/spaceship.lua`` around line 412 at the end of function Spaceship.get_launch_energy_cost() from:
 
     return energy_cost
 
